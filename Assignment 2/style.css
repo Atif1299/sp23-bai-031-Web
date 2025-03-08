@@ -12,7 +12,7 @@ html,body{
 }
 
 #strip {
-    height: 46.25px;
+    height: 6vh;
     background-color: black;
     display: flex;
     align-items: center;
@@ -34,7 +34,7 @@ html,body{
 }
 
 nav {
-    height: 78.75px;
+    height: 11vh;
     background: #fff;
     display: flex;
     align-items: center;
@@ -122,12 +122,8 @@ nav {
     color: rgb(83, 125, 202);
 }
 
-#fakeheader{
-    height: 125px;
-    background-color: rgb(159, 20, 20);
-}
 #carousals{
-    height: 530px;
+    height: 69vh;
     width: 100%;
     background-color: rgb(103, 18, 18);
 }
@@ -138,5 +134,60 @@ nav {
 }
 
 #buttons{
+    height: 125px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+#buttons button{
+    border: white;
+    background-color: white;
+
+}
+#buttons button a{
+    text-decoration: none;
+    color: gray;
+}
+#buttons a.hover{
+    cursor: pointer;
+}
+#buttons a.hover::after , #buttons a:hover::after{
+    position: absolute;
+    text-decoration-line: none;
+    text-decoration-color: black;
+}
+
+#itemslist{
+    height: 100vh;
+    background-color: gray;
+
+}
+#content{
+    height: 100vh;
+    background-color: white;
     
+}
+
+#discription {
+    height: 60%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+
+    font-weight: 400;
+    row-gap: 15px;
+}
+#discription p{
+    line-height: 25px;
+}
+
+
+
+#logos{
+    height: 40%;
+    background-color: gray;
+
 }
