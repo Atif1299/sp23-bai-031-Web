@@ -8,7 +8,8 @@ html,body{
    height: 100%;
    width: 100%;
    font-family: "Neuzeit Office", sans-serif;
-
+   /* overflow-x: hidden;
+   overflow-y: visible; */
 }
 
 #strip {
@@ -258,6 +259,44 @@ nav {
 #trust_content div p{
     font-weight: 100;
     font-size: small;
+}
+footer{
+    height: 72vh;
+    background-color: rgb(28, 27, 27);
+    color: white;
+}
+#panel{
+    height: 70%;
+    display: flex;
+}
+#panel div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px;
+}
+#panel a{
+    text-decoration: none;
+    color: white;
+}
+#panel a:hover {
+    color: gray;
+}
 
+#customercare li {
+    list-style: none;
+    margin: 15px;
+}
+
+#social{
+    text-anchor: initial;
+    display: flex;
+    
+}
+  
+#footer_menu{
+    background-color: gray;
+    height: 30%;
 }
 
