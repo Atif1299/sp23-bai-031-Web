@@ -1,10 +1,462 @@
-*{
-   margin:0%;
-   padding:0%;
+
+* {
    box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
-html,body{
-   height: 100%;
-   width: 100%;
+body {
+   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   line-height: 1.6;
+   color: #333;
+   background-color: #f9f9f9;
 }
+
+nav {
+   height: 13vh;
+   overflow: hidden;
+   background: #fff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 0 20px;
+   top: 0;
+   z-index: 100;
+}
+
+#logo {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#logo img {
+   max-height: 60px;
+   padding-left: 20px;
+}
+
+.cart-icon {
+   font-size: 1.5em;
+   /* margin-right: 10% ; */
+}
+
+
+.parent {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: repeat(5, 1fr);
+   gap: 0px;
+   background-color: #f7f7f7;
+}
+   
+.div1 {
+   grid-row: span 5 / span 5;
+   padding: 20px;
+   margin-top: 1px;
+   margin-left: 25%;
+   background-color: #fff; 
+   /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); */
+}
+
+.div2 {
+   grid-row: span 5 / span 5;
+   
+   max-width: 550px;
+   margin: 1px;
+   padding: 20px;
+   padding: 0 20px;
+   top: 0;
+   z-index: 100;
+
+   position: sticky;
+   background-color: #f7f7f7;
+}
+       
+
+
+/* Main Layout */
+.checkout-main {
+   display: flex;
+   flex-wrap: wrap; /* Allow wrapping on smaller screens */
+   gap: 30px; /* Space between form and summary */
+}
+
+.checkout-form-section {
+   flex: 2; /* Takes more space */
+   min-width: 300px; /* Minimum width */
+}
+
+.order-summary-section {
+   flex: 1; /* Takes less space */
+   min-width: 250px;
+   background-color: #fdfdfd;
+   padding: 20px;
+   border: 1px solid #eee;
+   border-radius: 5px;
+   height: fit-content; /* Adjust height to content */
+}
+
+/* Express Checkout */
+.express-checkout h2 {
+   font-size: 1.1em;
+   margin-bottom: 10px;
+   text-align: center;
+}
+.express-buttons {
+   display: flex;
+   gap: 10px;
+   margin-bottom: 15px;
+}
+.express-buttons .btn {
+   flex-grow: 1;
+   padding: 12px;
+   font-weight: bold;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+}
+.btn-shop-pay { background-color: #5a31f4; color: white; }
+.btn-paypal-express { background-color: #ffc439; color: #003087; }
+.btn-gpay { background-color: #000; color: white; }
+
+.separator {
+   text-align: center;
+   margin: 20px 0;
+   color: #aaa;
+   position: relative;
+}
+.separator span {
+   background-color: #fff; /* Match container background */
+   padding: 0 10px;
+   position: relative;
+   z-index: 1;
+}
+.separator::before {
+   content: '';
+   position: absolute;
+   top: 50%;
+   left: 0;
+   width: 100%;
+   height: 1px;
+   background-color: #eee;
+   z-index: 0;
+}
+
+/* Form Sections & Groups */
+.form-section {
+   margin-bottom: 30px;
+   padding-bottom: 20px;
+   border-bottom: 1px solid #eee;
+}
+.form-section:last-of-type {
+   border-bottom: none;
+   margin-bottom: 10px; /* Less margin before action button */
+}
+
+.form-section h2 {
+   font-size: 1.2em;
+   margin-bottom: 15px;
+   font-weight: 500;
+}
+
+.form-group {
+   margin-bottom: 15px;
+}
+
+.form-group label {
+   display: block;
+   margin-bottom: 5px;
+   font-size: 0.9em;
+   color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group select {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   font-size: 1em;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+   outline: none;
+   border-color: #5a31f4; /* Highlight color */
+   box-shadow: 0 0 0 1px #5a31f4;
+}
+
+.form-row {
+   display: flex;
+   gap: 15px;
+}
+.form-row .form-group {
+   flex: 1;
+}
+
+.checkbox-group label,
+.radio-group label {
+   display: inline-block;
+   margin-left: 8px;
+   font-size: 1em;
+   color: #333;
+}
+.checkbox-group input[type="checkbox"],
+.radio-group input[type="radio"] {
+    vertical-align: middle;
+}
+
+
+/* Shipping Placeholder */
+.shipping-placeholder {
+   background-color: #f0f0f0;
+   padding: 15px;
+   border-radius: 4px;
+   color: #666;
+   text-align: center;
+}
+
+/* Payment Options */
+.secure-text {
+   font-size: 0.85em;
+   color: #666;
+   margin-bottom: 15px;
+}
+.payment-options .payment-option {
+   border: 1px solid #ccc;
+   padding: 10px 15px;
+   margin-bottom: 10px;
+   border-radius: 4px;
+   cursor: pointer;
+}
+.payment-options .payment-option input[type="radio"] {
+    margin-right: 10px;
+}
+.payment-options .payment-option:has(input:checked) { /* Style selected option */
+   border-color: #5a31f4;
+   box-shadow: 0 0 0 1px #5a31f4;
+}
+.payment-options label {
+   display: inline; /* Keep radio and label on same line */
+   font-weight: 500;
+}
+/* Add basic styles for logos within labels if needed */
+.payment-options label [class*="Logo"],
+.payment-options label [class*="Icon"] {
+   font-style: italic; /* Placeholder for logos */
+   font-size: 0.8em;
+   margin-left: 5px;
+}
+
+
+/* Billing Options */
+.billing-options .radio-group {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.billing-options .radio-group:has(input:checked) {
+   border-color: #5a31f4;
+   box-shadow: 0 0 0 1px #5a31f4;
+}
+
+/* Remember Me Section */
+.remember-me .checkbox-group {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+}
+.remember-me .checkbox-group label {
+   flex-grow: 1; /* Push shop logo to the right */
+}
+.shop-logo {
+   font-weight: bold;
+   color: #5a31f4;
+   border: 1px solid #5a31f4;
+   padding: 2px 5px;
+   border-radius: 3px;
+   font-size: 0.9em;
+}
+.terms-notice {
+   font-size: 0.8em;
+   color: #666;
+}
+
+/* Action Button */
+.form-actions {
+   text-align: right; /* Align button to the right */
+   margin-top: 20px;
+}
+.btn {
+   padding: 12px 20px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 1em;
+   font-weight: 500;
+}
+.btn-primary {
+   background-color: #5a31f4;
+   color: white;
+}
+.btn-primary:disabled {
+   background-color: #ccc;
+   cursor: not-allowed;
+}
+
+/* Order Summary Section */
+.order-item {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   padding-bottom: 15px;
+   border-bottom: 1px solid #eee;
+   margin-bottom: 15px;
+}
+.item-image {
+   width: 60px;
+   height: 60px;
+   border: 1px solid #eee;
+   border-radius: 4px;
+   object-fit:scale-down;
+}
+.item-details {
+   flex-grow: 1;
+}
+.item-name {
+   font-weight: 500;
+}
+.item-price {
+   font-weight: bold;
+}
+
+.discount-section {
+   padding-bottom: 15px;
+   border-bottom: 1px solid #eee;
+   margin-bottom: 15px;
+}
+.discount-section .form-group {
+   display: flex;
+   gap: 5px;
+   margin-bottom: 0; /* Reset margin */
+}
+.discount-section input {
+   flex-grow: 1;
+}
+.btn-apply-discount {
+   padding: 10px;
+   background-color: #ddd;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   cursor: pointer;
+}
+
+.summary-details .summary-row {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 8px;
+   font-size: 0.95em;
+}
+.summary-details hr {
+   border: none;
+   border-top: 1px solid #eee;
+   margin: 10px 0;
+}
+.total-row {
+   font-weight: bold;
+   font-size: 1.1em !important;
+}
+.tax-note {
+   font-size: 0.85em;
+   color: #666;
+   text-align: right;
+   margin-top: 5px;
+}
+.shipping-cost {
+   color: #888; /* Indicate placeholder */
+}
+
+/* Footer */
+.checkout-footer {
+   margin-top: 30px;
+   padding-top: 15px;
+   border-top: 1px solid #eee;
+   text-align: center;
+}
+.checkout-footer a {
+   color: #555;
+   text-decoration: none;
+   font-size: 0.85em;
+   margin: 0 10px;
+}
+.checkout-footer a:hover {
+   text-decoration: underline;
+}
+
+/* Utility for screen readers */
+.sr-only {
+ position: absolute;
+ width: 1px;
+ height: 1px;
+ padding: 0;
+ margin: -1px;
+ overflow: hidden;
+ clip: rect(0, 0, 0, 0);
+ white-space: nowrap;
+ border-width: 0;
+}
+
+/* Basic Responsiveness */
+@media (max-width: 768px) {
+   .checkout-main {
+       flex-direction: column-reverse; /* Stack summary above form on small screens */
+   }
+   .form-row {
+       flex-direction: column;
+       gap: 0; /* Remove gap when stacked */
+   }
+   .form-actions {
+       text-align: center;
+   }
+   .btn-review-order {
+       width: 100%;
+   }
+   .express-buttons {
+       flex-direction: column;
+   }
+}
+
+/* --- Styles for Validation --- */
+
+/* Style for error messages */
+.error-message {
+   color: #d9534f; /* Red color for errors */
+   font-size: 0.85em;
+   display: none; /* Hide by default */
+   margin-top: 4px;
+}
+
+/* Style for invalid input fields */
+.input-error {
+   border-color: #d9534f !important; /* Force red border, override others */
+   box-shadow: 0 0 0 1px #d9534f !important; /* Optional: add red glow */
+}
+
+/* Ensure form groups have enough space for error messages */
+.form-group {
+   margin-bottom: 18px; /* Slightly increased margin */
+   position: relative; /* Needed if error message positioning is adjusted */
+}
+
+/* Adjust spacing if error message causes layout shift (optional) */
+/*
+.form-group .error-message {
+   position: absolute;
+   bottom: -18px;
+   left: 0;
+} */
