@@ -74,30 +74,27 @@ nav {
 }
        
 
-
-/* Main Layout */
 .checkout-main {
    display: flex;
-   flex-wrap: wrap; /* Allow wrapping on smaller screens */
-   gap: 30px; /* Space between form and summary */
+   flex-wrap: wrap; 
+   gap: 30px; 
 }
 
 .checkout-form-section {
-   flex: 2; /* Takes more space */
-   min-width: 300px; /* Minimum width */
+   flex: 2; 
+   min-width: 300px; 
 }
 
 .order-summary-section {
-   flex: 1; /* Takes less space */
+   flex: 1; 
    min-width: 250px;
    background-color: #fdfdfd;
    padding: 20px;
    border: 1px solid #eee;
    border-radius: 5px;
-   height: fit-content; /* Adjust height to content */
+   height: fit-content; 
 }
 
-/* Express Checkout */
 .express-checkout h2 {
    font-size: 1.1em;
    margin-bottom: 10px;
@@ -127,7 +124,7 @@ nav {
    position: relative;
 }
 .separator span {
-   background-color: #fff; /* Match container background */
+   background-color: #fff; 
    padding: 0 10px;
    position: relative;
    z-index: 1;
@@ -252,35 +249,35 @@ nav {
 }
 
 .payment-option {
-   display: flex;
-   align-items: center;
-   padding: 10px;
- }
- 
- #payment2 {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 100%; /* Make the label take full width */
-   padding-left: 10px;
- }
- 
- #payment2 .text {
-   font-size: 18px;
-   font-weight: 500;
- }
- 
- #payment2 .logos {
-   display: flex;
-   gap: 12px;
-   margin-left: auto; /* Push logos to the right */
- }
- 
- #payment2 .logos img {
-   width: 40px;
-   height: auto;
- }
- 
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+#payment2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+}
+
+#payment2 .text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+#payment2 .logos {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+#payment2 .logos img {
+  width: 40px;
+  height: auto;
+}
+
 
 /* Billing Options */
 .billing-options .radio-group {

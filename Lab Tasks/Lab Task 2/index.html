@@ -10,7 +10,7 @@
   <body>
     <nav>
       <div id="logo">
-        <a href="#"><img src="logo.png" alt="Logo" /></a>
+        <a href="#"><img src="Images/logo.png" alt="Logo" /></a>
       </div>
       <div class="cart-icon">🛒</div>
     </nav>
@@ -143,6 +143,60 @@
                       </label>
                     </div>
 
+                    <!-- Credit Card Details (Now inside #cc-details) -->
+                    <div
+                      id="cc-details"
+                      style="
+                        display: none;
+                        border: 1px solid #eee;
+                        padding: 15px;
+                        margin-top: 10px;
+                      "
+                    >
+                      <div class="form-group">
+                        <label for="cc-number">Card Number</label>
+                        <input
+                          type="text"
+                          id="cc-number"
+                          name="cc_number"
+                          pattern="\d{16}"
+                          maxlength="16}"
+                          title="Enter 16 digits without spaces or dashes."
+                        />
+                        <span class="error-message" id="error-cc-number"></span>
+                      </div>
+                      <div class="form-row">
+                        <div class="form-group">
+                          <label for="cc-expiry">Expiry Date (MM/YY)</label>
+                          <input
+                            type="text"
+                            id="cc-expiry"
+                            name="cc_expiry"
+                            placeholder="MM/YY"
+                            pattern="\d{2}/\d{2}"
+                            title="Enter date in MM/YY format."
+                          />
+                          <span
+                            class="error-message"
+                            id="error-cc-expiry"
+                          ></span>
+                        </div>
+                        <div class="form-group">
+                          <label for="cc-cvv">CVV</label>
+                          <input
+                            type="text"
+                            id="cc-cvv"
+                            name="cc_cvv"
+                            pattern="\d{3}"
+                            maxlength="3"
+                            title="Enter the 3-digit CVV."
+                          />
+                          <span class="error-message" id="error-cc-cvv"></span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- PayPal Option (Outside #cc-details) -->
                     <div class="payment-option">
                       <input
                         type="radio"
@@ -156,54 +210,6 @@
                           <img src="Images/paypal.png" alt="Paypal" />
                         </span>
                       </label>
-                    </div>
-                  </div>
-                  <div
-                    id="cc-details"
-                    style="
-                      display: none;
-                      border: 1px solid #eee;
-                      padding: 15px;
-                      margin-top: 10px;
-                    "
-                  >
-                    <div class="form-group">
-                      <label for="cc-number">Card Number</label>
-                      <input
-                        type="text"
-                        id="cc-number"
-                        name="cc_number"
-                        pattern="\d{16}"
-                        maxlength="16"
-                        title="Enter 16 digits without spaces or dashes."
-                      />
-                      <span class="error-message" id="error-cc-number"></span>
-                    </div>
-                    <div class="form-row">
-                      <div class="form-group">
-                        <label for="cc-expiry">Expiry Date (MM/YY)</label>
-                        <input
-                          type="text"
-                          id="cc-expiry"
-                          name="cc_expiry"
-                          placeholder="MM/YY"
-                          pattern="\d{2}/\d{2}"
-                          title="Enter date in MM/YY format."
-                        />
-                        <span class="error-message" id="error-cc-expiry"></span>
-                      </div>
-                      <div class="form-group">
-                        <label for="cc-cvv">CVV</label>
-                        <input
-                          type="text"
-                          id="cc-cvv"
-                          name="cc_cvv"
-                          pattern="\d{3}"
-                          maxlength="3"
-                          title="Enter the 3-digit CVV."
-                        />
-                        <span class="error-message" id="error-cc-cvv"></span>
-                      </div>
                     </div>
                   </div>
                 </section>
@@ -289,7 +295,7 @@
         <aside class="order-summary-section">
           <div class="order-item">
             <img
-              src="checkout-image.jpg"
+              src="Images/checkout-image.jpg"
               alt="Leora Wrap Dress"
               class="item-image"
             />
