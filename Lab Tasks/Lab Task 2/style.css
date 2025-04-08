@@ -251,6 +251,36 @@ nav {
    margin-left: 5px;
 }
 
+.payment-option {
+   display: flex;
+   align-items: center;
+   padding: 10px;
+ }
+ 
+ #payment2 {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%; /* Make the label take full width */
+   padding-left: 10px;
+ }
+ 
+ #payment2 .text {
+   font-size: 18px;
+   font-weight: 500;
+ }
+ 
+ #payment2 .logos {
+   display: flex;
+   gap: 12px;
+   margin-left: auto; /* Push logos to the right */
+ }
+ 
+ #payment2 .logos img {
+   width: 40px;
+   height: auto;
+ }
+ 
 
 /* Billing Options */
 .billing-options .radio-group {

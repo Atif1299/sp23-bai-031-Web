@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout - People Tree EU</title>
+    <link rel="stylesheet" href="css/checkout.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="announcement-bar">
+      <p>
+        Welcome to People Tree EU | Shipping to UK coming soon. Contact us if UK
+        based for returns or special orders.
+      </p>
+    </div>
+
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img
+              src="images/logo.png"
+              alt="People Tree - Truly Conscious Clothing"
+            />
+          </a>
+        </div>
+        <div class="header-actions">
+          <a href="#" class="account-link">My Account</a>
+          <a href="#" class="search-link">Search</a>
+          <a href="checkout.html" class="cart-link">Cart</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="checkout-container">
+      <div class="checkout-header">
+        <h1>Checkout</h1>
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a> &gt;
+          <a href="#" class="current">Checkout</a>
+        </div>
+      </div>
+
+      <div class="checkout-content">
+        <div class="checkout-form-container">
+          <form class="checkout-form" id="checkout-form">
+            <div class="form-section">
+              <h2>Contact Information</h2>
+              <p class="form-helper">
+                Already have an account? <a href="#">Log in</a>
+              </p>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+
+              <div class="newsletter-checkbox">
+                <input
+                  type="checkbox"
+                  id="subscribe"
+                  name="subscribe"
+                  checked
+                />
+                <label for="subscribe"
+                  >Keep me up to date on news and exclusive offers</label
+                >
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2>Shipping Address</h2>
+
+              <div class="name-inputs">
+                <div class="form-group">
+                  <label for="first-name">First name</label>
+                  <input
+                    type="text"
+                    id="first-name"
+                    name="first-name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="last-name">Last name</label>
+                  <input type="text" id="last-name" name="last-name" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="company">Company (optional)</label>
+                <input type="text" id="company" name="company" />
+              </div>
+
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" required />
+              </div>
+
+              <div class="form-group">
+                <label for="apartment">Apartment, suite, etc. (optional)</label>
+                <input type="text" id="apartment" name="apartment" />
+              </div>
+
+              <div class="location-inputs">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" id="city" name="city" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="country">Country/Region</label>
+                  <select id="country" name="country" required>
+                    <option value="" disabled selected>Select country</option>
+                    <option value="AT">Austria</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="DK">Denmark</option>
+                    <option value="EE">Estonia</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="GR">Greece</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IT">Italy</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MT">Malta</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="RO">Romania</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ES">Spain</option>
+                    <option value="SE">Sweden</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="postal-code">Postal code</label>
+                  <input
+                    type="text"
+                    id="postal-code"
+                    name="postal-code"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="phone" />
+                <p class="input-helper">
+                  In case we need to contact you about your order
+                </p>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2>Shipping Method</h2>
+
+              <div class="shipping-options">
+                <div class="shipping-option">
+                  <input
+                    type="radio"
+                    id="shipping-standard"
+                    name="shipping-method"
+                    value="standard"
+                    checked
+                  />
+                  <label for="shipping-standard">
+                    <div class="option-info">
+                      <span class="option-name">Standard Shipping (DHL)</span>
+                      <span class="option-description">3-5 business days</span>
+                    </div>
+                    <span class="option-price">€8.00</span>
+                  </label>
+                </div>
+
+                <div class="shipping-option">
+                  <input
+                    type="radio"
+                    id="shipping-express"
+                    name="shipping-method"
+                    value="express"
+                  />
+                  <label for="shipping-express">
+                    <div class="option-info">
+                      <span class="option-name"
+                        >Express Shipping (DHL Express)</span
+                      >
+                      <span class="option-description">1-2 business days</span>
+                    </div>
+                    <span class="option-price">€15.00</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2>Payment Method</h2>
+
+              <div class="payment-options">
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="payment-card"
+                    name="payment-method"
+                    value="card"
+                    checked
+                  />
+                  <label for="payment-card">
+                    <div class="option-info">
+                      <span class="option-name">Credit/Debit Card</span>
+                    </div>
+                    <div class="card-icons">
+                      <img src="images/visa.svg" alt="Visa" />
+                      <img src="images/mastercard.svg" alt="Mastercard" />
+                      <img src="images/amex.svg" alt="American Express" />
+                    </div>
+                  </label>
+                </div>
+
+                <div class="card-details" id="card-details">
+                  <div class="form-group">
+                    <label for="card-number">Card number</label>
+                    <input
+                      type="text"
+                      id="card-number"
+                      name="card-number"
+                      placeholder="1234 5678 9012 3456"
+                      required
+                    />
+                  </div>
+
+                  <div class="card-expiry-cvv">
+                    <div class="form-group">
+                      <label for="expiry-date">Expiry date (MM/YY)</label>
+                      <input
+                        type="text"
+                        id="expiry-date"
+                        name="expiry-date"
+                        placeholder="MM/YY"
+                        required
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="cvv">Security code (CVV)</label>
+                      <input
+                        type="text"
+                        id="cvv"
+                        name="cvv"
+                        placeholder="123"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="card-name">Name on card</label>
+                    <input
+                      type="text"
+                      id="card-name"
+                      name="card-name"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="payment-option">
+                  <input
+                    type="radio"
+                    id="payment-paypal"
+                    name="payment-method"
+                    value="paypal"
+                  />
+                  <label for="payment-paypal">
+                    <div class="option-info">
+                      <span class="option-name">PayPal</span>
+                      <span class="option-description"
+                        >You will be redirected to PayPal to complete your
+                        payment</span
+                      >
+                    </div>
+                    <img
+                      src="images/paypal.svg"
+                      alt="PayPal"
+                      class="paypal-icon"
+                    />
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2>Review Your Order</h2>
+
+              <div class="order-review">
+                <label for="order-notes">Order notes (optional)</label>
+                <textarea
+                  id="order-notes"
+                  name="order-notes"
+                  placeholder="Add any special instructions or requests..."
+                ></textarea>
+              </div>
+
+              <div class="terms-checkbox">
+                <input type="checkbox" id="terms" name="terms" required />
+                <label for="terms"
+                  >I have read and agree to the website
+                  <a href="#">terms and conditions</a></label
+                >
+              </div>
+            </div>
+
+            <div class="complete-order-btn-container">
+              <button type="submit" class="complete-order-btn">
+                Complete Order
+              </button>
+              <a href="index.html" class="return-to-cart">Return to cart</a>
+            </div>
+          </form>
+        </div>
+
+        <div class="order-summary">
+          <h2>Order Summary</h2>
+
+          <div class="cart-items">
+            <div class="cart-item">
+              <div class="item-image">
+                <img src="images/product3.jpg" alt="Leora Wrap Dress in Red" />
+                <span class="item-quantity">1</span>
+              </div>
+              <div class="item-details">
+                <h3>Leora Wrap Dress in Red</h3>
+                <p class="item-variant">Size: 12</p>
+              </div>
+              <div class="item-price">€109.00</div>
+            </div>
+          </div>
+
+          <div class="cart-footer">
+            <div class="discount-code">
+              <input
+                type="text"
+                placeholder="Discount code"
+                id="discount-code"
+              />
+              <button type="button" id="apply-discount">Apply</button>
+            </div>
+
+            <div class="cart-totals">
+              <div class="cart-row">
+                <span>Subtotal</span>
+                <span>€109.00</span>
+              </div>
+
+              <div class="cart-row">
+                <span>Shipping</span>
+                <span>€8.00</span>
+              </div>
+
+              <div class="cart-row">
+                <span>Taxes</span>
+                <span>Calculated at next step</span>
+              </div>
+
+              <div class="cart-row total">
+                <span>Total</span>
+                <div class="total-price">
+                  <span class="currency">EUR</span>
+                  <span class="amount">€117.00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Customer Care</h3>
+          <ul>
+            <li><a href="#">Search</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Returns and Refunds</a></li>
+            <li><a href="#">Terms and Conditions</a></li>
+            <li><a href="#">Legal Notice</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Social</h3>
+          <p>Stay current with updates from our social channels.</p>
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"
+              ><img src="images/instagram-icon.svg" alt="Instagram"
+            /></a>
+            <a href="#" aria-label="Facebook"
+              ><img src="images/facebook-icon.svg" alt="Facebook"
+            /></a>
+            <a href="#" aria-label="Twitter"
+              ><img src="images/twitter-icon.svg" alt="Twitter"
+            /></a>
+            <a href="#" aria-label="YouTube"
+              ><img src="images/youtube-icon.svg" alt="YouTube"
+            /></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to receive latest news, exclusive offers & early access to
+            our sales - and get 10% off your first order!
+          </p>
+          <form class="newsletter-form">
+            <input type="text" placeholder="First name" />
+            <input type="email" placeholder="email@newsletter.com" />
+            <button type="submit">JOIN</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 People Tree. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="js/checkout.js"></script>
+  </body>
+</html>
