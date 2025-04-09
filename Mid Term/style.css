@@ -1,0 +1,531 @@
+*{
+    margin:0%;
+    padding:0%;
+    box-sizing: border-box;
+ }
+ 
+ html,body{
+    height: 100%;
+    width: 100%;
+    font-family: "Neuzeit Office", sans-serif;
+    overflow-x: hidden;
+    overflow-y: visible;
+ }
+ 
+ #strip {
+     height: 6vh;
+     background-color: black;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 5px 15px;
+     text-align: center;
+     position: relative;
+ }
+ 
+ #strip p {
+     color: white;
+     font-size: 25px;
+     letter-spacing: 1px;
+     font-weight: 400;
+ }
+ 
+ #strip span {
+     font-weight: 600;
+ }
+ /* === Keep all your existing CSS above this line === */
+
+nav {
+    height: 11vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure nav is above other content */
+}
+
+#logo {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#logo img {
+    max-height: 50px;
+    padding-left: 20px;
+}
+
+#links {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#links ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+}
+
+#links ul li {
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative; /* Needed for absolute positioning of pseudo-elements and mega menu */
+    padding: 10px 15px;
+}
+
+#links ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    display: block; /* Ensures padding works as expected */
+}
+
+/* Keep your existing :after pseudo-element for hover underline */
+#links ul li:not(#previous-tasks-li):after { /* Exclude the mega menu item from this specific hover */
+    content: '';
+    width: 0;
+    height: 3px;
+    background: hsl(211, 56%, 14%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+#links ul li:not(#previous-tasks-li):hover::after {
+    width: 100%;
+}
+
+
+#links ul li a:hover {
+    color: #f32323;
+    transition: 0.3s ease-in-out;
+}
+
+#icon {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding-right: 20px;
+    font-size: 24px;
+    color: black;
+}
+
+#icon i {
+    cursor: pointer;
+    transition: color 0.1s ease-in-out;
+}
+
+#icon i:hover {
+    color: rgb(83, 125, 202);
+}
+
+
+/* === NEW CSS FOR MEGA MENU === */
+
+/* Style the specific "Previous Tasks" list item if needed */
+#previous-tasks-li {
+    /* Inherits most styles from #links ul li */
+}
+
+/* The Mega Menu Container */
+#mega-menu {
+    position: absolute;
+    top: 100%; /* Position it right below the parent li */
+    left: 50%;
+    transform: translateX(-50%); /* Center the mega menu */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex; /* Use flexbox to arrange columns */
+    gap: 25px; /* Space between columns */
+    min-width: 900px; /* Adjust width as needed */
+    border-radius: 4px;
+    z-index: 1001; /* Ensure mega menu is above nav content if needed */
+
+    /* Visibility & Transition */
+    visibility: hidden; /* Use visibility for smoother transitions */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    margin-top: 10px; /* Add some space between nav item and menu */
+}
+
+#mega-menu.mega-menu-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Deprecated initial hiding class (replaced by #mega-menu default state) */
+/* .mega-menu-hidden {
+    display: none;
+} */
+
+
+/* Styling within the Mega Menu */
+.mega-menu-column {
+    flex: 1; /* Each column takes equal space */
+    min-width: 150px; /* Prevent columns from becoming too narrow */
+}
+
+.mega-menu-column h3 {
+    font-size: 0.9rem;
+    margin-top: 0;
+    margin-bottom: 8px;
+    color: hsl(211, 56%, 14%);
+    font-weight: 600;
+}
+.mega-menu-column h3 a { /* Style link within h3 */
+    text-decoration: none;
+    color: inherit; /* Inherit color from h3 */
+}
+.mega-menu-column h3 a:hover {
+    color: #f32323; /* Hover effect for title link */
+    text-decoration: underline;
+}
+
+
+.mega-menu-column p {
+    font-size: 0.75rem;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.mega-menu-link {
+    font-size: 0.75rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block; /* Allows padding/margin */
+}
+
+.mega-menu-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+
+ #carousals img{
+     height: 100%;
+     width: 100%;
+     object-fit: cover;
+ }
+ 
+ #buttons{
+     height: 125px;
+     display: flex;
+     gap: 20px;
+     justify-content: center;
+ }
+ #buttons button{
+     border: white;
+     background-color: white;
+ 
+ }
+ #buttons button a{
+     text-decoration: none;
+     color: gray;
+ }
+ #buttons a.hover{
+     cursor: pointer;
+ }
+ #buttons a.hover::after , #buttons a:hover::after{
+     position: absolute;
+     text-decoration-line: none;
+     text-decoration-color: black;
+ }
+ 
+ 
+ #itemslist {
+     display: flex;
+     width: 100%;
+ }
+ 
+ #fixeditem {
+     width: 25vw;
+     background-color: rgb(20, 14, 14);
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ #fixeditem img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
+ 
+ .item {
+     width: 25vw;
+     background-color: white;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     position: relative;
+ }
+ 
+ .item-image {
+     width: 100%;
+     height: 90%;
+     position: relative;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+ }
+ 
+ .default-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     position: absolute;
+     transition: opacity 0.5s ease-in-out;
+ }
+ 
+ .hover-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     position: absolute;
+     opacity: 0;
+     transition: opacity 0.5s ease-in-out;
+ }
+ 
+ .quick-add {
+     position: absolute;
+     bottom: 0%;
+     width: 100%;
+     left: 50%;
+     transform: translateX(-50%);
+     padding: 10px 20px;
+     background-color: rgb(246, 243, 243);
+     color: rgb(87, 65, 65);
+     border: none;
+     cursor: pointer;
+     font-size: 15px;
+     opacity: 0;
+     transition: opacity 0.4s ease-in-out;
+ }
+ 
+ .item:hover .hover-image {
+     opacity: 1;
+ }
+ 
+ .item:hover .default-image {
+     opacity: 0;
+ }
+ 
+ .item:hover .quick-add {
+     opacity: 1;
+ }
+ 
+ .description {
+     height: 15%;
+     width: 100%;
+     text-align: center;
+     border: 1px solid rgb(242, 236, 236);
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     font-size: 14px;
+     padding: 10px;
+ }
+ 
+ .description a {
+     text-decoration: none;
+     color: black;
+     font-size: 16px;
+ }
+ 
+ #content_page1{
+     height: 100vh;
+     background-color: white;
+     
+ }
+ 
+ #discription_1 {
+     height: 60%;
+ 
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     flex-direction: column;
+ 
+     font-weight: 400;
+     row-gap: 15px;
+ }
+ 
+ #discription_1 p{
+     line-height: 25px;
+ }
+ #heading{
+     text-align: center;
+     margin-bottom: 30px;
+ }
+ 
+ #logos {
+     display: flex;
+     justify-content: center;
+     gap: 25px;
+     flex-wrap: wrap;
+ }
+ #logos div{
+     height: 140px;
+     width: 140px;
+     margin: 20px;
+     
+     
+ }
+ #logos img {
+     width: 90%; 
+     height: 90%;
+     object-fit: contain; 
+ }
+ 
+ #content_page2{
+     height: 100vh;
+     background-color: white;
+     
+ }
+ 
+ #discription_2 {
+     height: 65%;
+ 
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     text-align: center;
+     flex-direction: column;
+     font-weight: 400;
+     row-gap: 15px;
+ }
+ 
+ #discription_2 p{
+     line-height: 25px;
+ }
+ #discription_2 h2{
+     font-weight: 100;
+     margin-bottom: 15px;
+ }
+ 
+ #trust_content{
+     background-color: #fafafa;
+     height: 35%;
+     display: flex;
+ }
+ #trust_content div{
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     margin-left: 70px;
+     margin-right: 8vw;
+ }
+ 
+ #trust_content div i{
+     margin-bottom: 12px;
+     height: 30px;
+     width: 30px;
+ }
+ #trust_content div h3{
+     margin-bottom: 9px;
+ }
+ #trust_content div p{
+     font-weight: 100;
+     font-size: small;
+ }
+ 
+ footer {
+     height: 72vh;
+     background-color: rgb(28, 27, 27);
+     color: white;
+ }
+ 
+ #panel {
+     height: 70%;
+     display: flex;
+ }
+ 
+ #panel div {
+     gap: 25px;
+     margin: 70px 50px;
+ }
+ 
+ #panel a {
+     text-decoration: none;
+     list-style: none;
+     color: white;
+     margin: 15px;
+     padding: 0;
+ }
+ 
+ #panel h4 {
+     margin-bottom: 15px;
+ }
+ 
+ #panel a:hover {
+     color: rgb(0, 0, 0);
+ }
+ 
+ #customercare a {
+     display: flex;
+     flex-direction: column;
+ }
+ 
+ #social_icons {
+     display: flex;
+ }
+ 
+ #newsletter {
+     display: inline-block;
+ }
+ 
+ #input-box{
+     padding: 5px;
+     font-size: 18px;
+     border: 1px solid white;
+     background-color: #181818;
+     color: white;
+     outline: none;
+     width: 100%;
+ }
+ 
+ #email-input {
+     padding: 5px;
+     font-size: 18px;
+     border: 1px solid white;
+     background-color: #181818;
+     color: white;
+     outline: none;
+     width: 24vw;
+ }
+ 
+ #join-button {
+     width: 5vw;
+     padding: 5px;
+     font-size: 18px;
+     font-weight: bold;
+     border: none;
+     background-color: white;
+     color: black;
+     cursor: pointer;
+ }
+ 
+ #join-button:hover {
+     background-color: #ccc;
+ }
+ 
+ #footer_menu {
+     background-color: rgb(28, 27, 27);
+     height: 30%;
+ }
