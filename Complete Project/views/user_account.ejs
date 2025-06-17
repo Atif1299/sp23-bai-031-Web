@@ -1,0 +1,16 @@
+<div class="admin-panel-layout">
+  <aside class="sidebar">
+    <a href="/user/account" class="logo user-account-link">User Account</a>
+    <ul class="sidebar-nav">
+      <li><a href="/user/account/cart" class="sidebar-link"><i class="ri-shopping-cart-2-line"></i> Shopping Cart</a></li>
+      <li><a href="/user/account/history" class="sidebar-link"><i class="ri-history-line"></i> Purchase History</a></li>
+      <li><a href="/user/logout" class="sidebar-link"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+    </ul>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Welcome, <%= user.name %>!</h1>
+    </div>
+    <p>Select an option from the sidebar.</p>
+  </main>
+</div>
