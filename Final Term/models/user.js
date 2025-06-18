@@ -7,22 +7,22 @@ const userSchema = new mongoose.Schema({
   shoppingCart: [
     {
       product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-      quantity: { type: Number, default: 1 }
-    }
+      quantity: { type: Number, default: 1 },
+    },
   ],
   purchaseHistory: [
     {
       items: [
         {
           product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product' },
-          quantity: Number
-        }
+          quantity: Number,
+        },
       ],
       address: String,
       amount: Number,
       paymentMethod: String,
-      date: { type: Date, default: Date.now }
-    }
+      date: { type: Date, default: Date.now },
+    },
   ],
 })
 
