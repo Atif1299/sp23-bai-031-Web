@@ -1,0 +1,196 @@
+#about-page main {
+    padding: 20px;
+    flex: 1;
+    min-height: 400px;
+}
+
+#about-page section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#about-page h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#about-page p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#about-page .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+    justify-content: center; /* Center items when there's space */
+    padding: 40px 20px;
+}
+
+#about-page .about-left {
+    flex: 2;
+    min-width: 200px;
+    margin-left: 100px; /* Margin for the left box 
+    /* margin-left: 30px; */
+    text-align: left;
+    height: 75vh;
+
+    padding-right: 20px;
+    box-sizing: border-box;
+    background-color: #fff; /* White background for the left box */
+    padding: 40px; /* Padding for the left box */
+    border-radius: 12px; /* Rounded corners for the left box */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Subtle shadow for the left box */
+}
+
+#about-page .about-how {
+    font-size: 1.1em;
+    color: #ff6600; /* Orange color from the image */
+    font-weight: bold;
+    text-transform: none; /* Not uppercase in the image */
+    letter-spacing: normal;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#about-page .about-title {
+    font-size: 2.2em; /* Larger font size */
+    color: #2b2828; /* Black color */
+    margin-bottom: 25px;
+    line-height: 1.1; /* Tighter line height */
+    font-weight: 800; /* Bolder font weight */
+}
+
+#about-page .about-desc {
+    font-size: 1em; /* Slightly smaller font size */
+    color: #666; /* Lighter grey */
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#about-page .about-right {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    /* height: 80%; */
+    margin-right: 100px;
+    margin-bottom: 100px;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+#about-page .about-img-card, #about-page .about-stat-card.hoverable {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#about-page .about-img-card.hoverable:hover, #about-page .about-stat-card.hoverable:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 16px 32px rgba(0, 123, 255, 0.15), 0 2px 8px rgba(0,0,0,0.08);
+    z-index: 2;
+}
+
+#about-page .about-img-card {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    background-color: #e0f2f7; /* Light blue background for the image card */
+    position: relative;
+    
+}
+
+#about-page .about-img-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/resources/files/landing_top_1.png'); /* Abstract shapes */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* Adjust opacity as needed */
+    z-index: 0;
+}
+
+#about-page .about-people-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+#about-page .about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 20px;
+    width: 100%;
+    max-width: 500px; /* Max width for the stats grid */
+}
+
+#about-page .about-stat-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* More prominent shadow */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about-page .about-stat-value {
+    font-size: 2.8em; /* Larger font size */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px; /* Reduced margin */
+}
+
+#about-page .about-stat-label {
+    font-size: 0.9em; /* Slightly smaller font size */
+    color: #666;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    #about-page .about-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    #about-page .about-left,
+    #about-page .about-right {
+        min-width: unset;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    #about-page .about-title {
+        font-size: 2.5em;
+    }
+
+    #about-page .about-desc {
+        font-size: 0.95em;
+    }
+
+    #about-page .about-stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* Keep two columns on smaller screens if possible */
+    }
+}
+@media (max-width: 480px) {
+    #about-page .about-stats-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}

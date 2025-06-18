@@ -1,0 +1,152 @@
+body, #faq-page, #faq-page main {
+    background: #f9f9f9 !important;
+    box-shadow: none !important;
+}
+
+#faq-page main {
+    padding: 50px 20px;
+    flex: 1;
+    min-height: 600px;
+    background-color: #f9f9f9; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.faq-section {
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: none; 
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+
+.faq-main-heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2c3e50; 
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.faq-main-heading .highlight {
+    background: linear-gradient(to right, #ff6b6b, #ffa07a); /* Red-orange gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.faq-sub-heading {
+    font-size: 1.1rem;
+    color: #7f8c8d; /* Lighter grey for sub-heading */
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+.accordion-container {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    overflow: visible;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee; /* Separator line */
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Remove default marker */
+}
+
+.accordion-item:last-child {
+    border-bottom: none; /* No border on the last item */
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #34495e; /* Darker text for questions */
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.2s ease;
+    user-select: none; /* Prevent text selection on click */
+}
+
+.accordion-header:hover {
+    background-color: #f8f8f8;
+}
+
+/* Hide default arrow for <details> */
+.accordion-item summary::-webkit-details-marker,
+.accordion-item summary::marker {
+    display: none;
+    content: "";
+}
+
+.icon-wrapper {
+    font-size: 1.4rem;
+    color: #3498db; /* Blue for icons */
+    transition: transform 0.2s ease;
+}
+
+.accordion-item[open] .icon-wrapper {
+    transform: rotate(0deg); /* No rotation needed, just icon change */
+}
+
+.plus-icon {
+    display: block;
+}
+
+.minus-icon {
+    display: none;
+}
+
+.accordion-item[open] .plus-icon {
+    display: none;
+}
+
+.accordion-item[open] .minus-icon {
+    display: block;
+}
+
+.accordion-content {
+    padding: 0 25px 20px 25px;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+.accordion-item[open] .accordion-content {
+    max-height: 200px; /* Adjust as needed for content length */
+    padding: 0 25px 20px 25px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .faq-main-heading {
+        font-size: 2.5rem;
+    }
+    .faq-sub-heading {
+        font-size: 1rem;
+    }
+    .accordion-header {
+        font-size: 1rem;
+        padding: 15px 20px;
+    }
+    .accordion-content {
+        padding: 0 20px 15px 20px;
+    }
+}

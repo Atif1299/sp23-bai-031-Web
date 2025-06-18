@@ -1,0 +1,30 @@
+<section class="shop-banner">
+  <h1>Discover People Tree</h1>
+  <p>Ethical. Sustainable. Beautiful. <br>
+     "Fashion with a conscience – because every choice matters."</p>
+</section>
+
+<div id="itemslist">
+    <% if (products && products.length) { %>
+      <% products.forEach(function(product) { %>
+        <div class="item">
+            <div class="item-image">
+                <img class="default-image" src="<%= product.image %>" alt="<%= product.name %>">
+                <% if (product.hoverImage) { %>
+                  <img class="hover-image" src="<%= product.hoverImage %>" alt="<%= product.name %>">
+                <% } %>
+                <form method="POST" action="/user/cart/add/<%= product._id %>" style="display:inline;">
+                  <button type="submit" class="quick-add">Add to Cart</button>
+                </form>
+            </div>
+            <div class="description">
+                <a href="#"><%= product.name %></a>
+                <br>
+                <%= product.price %> INR
+            </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <div class="no-products">No products found.</div>
+    <% } %>
+</div> 

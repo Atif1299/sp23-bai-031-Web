@@ -1,0 +1,149 @@
+body
+{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: #f8f9fa;
+  font-family: 'Arial', sans-serif;
+}
+
+.admin-container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 200px);
+  background: #f8f9fa;
+  padding: 40px 0;
+  position: relative;
+}
+
+.admin-container::before
+{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, #e94560, #00d2d3);
+}
+
+.box
+{
+  position: relative;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login
+{
+  width: 350px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login:hover
+{
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.loginBx
+{
+  padding: 20px;
+}
+
+.loginBx h2
+{
+  margin: 0;
+  padding: 25px 0;
+  color: #333;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  border-bottom: 2px solid #e94560;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  position: relative;
+}
+
+.loginBx h2 i
+{
+  color: #e94560;
+  margin-right: 10px;
+  font-size: 24px;
+}
+
+.inputBx
+{
+  position: relative;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.inputBx input
+{
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0;
+  display: block;
+  border: 1px solid #ddd;
+  background: #fff;
+  outline: none;
+  color: #333;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.inputBx input:focus
+{
+  border-color: #e94560;
+}
+
+.inputBx input[type="submit"]
+{
+  background: #00d2d3;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 25px;
+  width: 100%;
+  font-size: 16px;
+  margin-top: 30px;
+  transition: background 0.3s;
+}
+
+.inputBx input[type="submit"]:hover
+{
+  background: #00a1a2;
+}
+
+.group
+{
+  display: flex;
+  justify-content: center;
+  padding: 0 10px;
+  margin-top: 20px;
+}
+
+.group a
+{
+  color: #e94560;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.group a:hover
+{
+  text-decoration: underline;
+}

@@ -1,0 +1,197 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+        ></button>
+        <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+        ></button>
+        <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+        ></button>
+        <button
+            type="button"
+            data-bs-target="#myCarousel"
+            data-bs-slide-to="3"
+            aria-label="Slide 4"
+        ></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active bg-dark">
+            <img src="resources/files/landing_top_1.png" class="d-block w-100" alt="Slide 1">
+            <div class="carousel-caption0 d-none d-md-block">
+                <h5>Summer Knits</h5>
+                <p>Crass justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="/shop">SHOP KNITWEAR</a>
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item bg-dark">
+            <img src="resources/files/People_Tree_Be_The_Change_Banner_02_SM.jpg" class="d-block w-100" alt="Slide 2">
+            <div class="carousel-caption1 d-none d-md-block">
+                <h5>New Linen For Life</h5>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in libero ut odio elementum suscipit.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="/shop">SHOP LINED NOW</a>
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item bg-dark">
+            <img src="resources/files/People_Tree_Noir_Removable_Buttons_Banner_01_SM.jpg" class="d-block w-100" alt="Slide 3">
+            <div class="carousel-caption2 d-none d-md-block">
+                <h5>Foreever Denim</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="/shop">SHOP FOREVER DENIM</a>
+                </p>
+            </div>
+        </div>
+        <div class="carousel-item bg-dark">
+            <img src="resources/files/Sale_HAPPYNEWYEAR_Large-Banner-eu-min.jpg" class="d-block w-100" alt="Slide 4">
+            <div class="carousel-caption3 d-none d-md-block">
+                <h5>Wearhouse Clearance: 70% Off</h5>
+                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="/shop">SHOP FOREVER DENIM</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="prev"
+    >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="next"
+    >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div id="buttons">
+    <button>
+        <a href="#">Summer Edit -30%</a>
+    </button>
+    <button>
+        <a href="#">Dresses</a>
+    </button>
+    <button>
+        <a href="#">New Arrivals</a>
+    </button>
+</div>
+<div id="itemslist">
+    <div id="fixeditem">
+        <img src="resources/files/SOCIAL_5_8_CoD_1296x.jpg" alt="Leora Wrap Dress">
+    </div>
+    <% if (products && products.length) { %>
+      <% products.forEach(function(product) { %>
+        <div class="item">
+            <div class="item-image">
+                <img class="default-image" src="<%= product.image %>" alt="<%= product.name %>">
+                <% if (product.hoverImage) { %>
+                  <img class="hover-image" src="<%= product.hoverImage %>" alt="<%= product.name %>">
+                <% } %>
+                <form method="POST" action="/user/cart/add/<%= product._id %>" style="display:inline;">
+                  <button type="submit" class="quick-add">Add to Cart</button>
+                </form>
+            </div>
+            <div class="description">
+                <a href="#"><%= product.name %></a>
+                <br>
+                <%= product.price %> INR
+            </div>
+        </div>
+      <% }) %>
+    <% } %>
+</div>
+<div id="content_page1">
+    <div id="discription_1">
+        <h4>Our Mission, Our Promise</h4>
+        <h2>Ethical and Beautiful</h2>
+        <p>
+            We are committed to quality products, produced ethically and sustainably with respect for people and planet.
+            <br>
+            We celebrate the age-old craft skills of our partners and - with the People Tree Foundation - promote initiatives to reinforce the viability of sustainable
+            <br>
+            community producers. People Tree are proud to be the first international fashion brand certified by the World Fair Trade Association, with all pieces fully
+            <br>
+            traceable in a transparent supply chain.
+        </p>
+    </div>
+    <div id="heading">
+        <p>GOTS Certified Organic Cotton</p>
+    </div>
+    <div id="logos">
+        <div id="GOTS">
+            <img src="resources/companies icons/gots-logo_rgb_2022_transp_1.png" alt="">
+        </div>
+        <div id="WORLD">
+            <img src="resources/companies icons/NEW_WFTO_logo_Square_360x.png" alt="">
+        </div>
+        <div id="PETA">
+            <img src="resources/companies icons/vegan-cangre.jpg" alt="">
+        </div>
+        <div id="OETA">
+            <img src="resources/companies icons/oeko.png" alt="">
+        </div>
+        <div id="SOIL">
+            <img src="resources/companies icons/sa_organic_black_360x.png" alt="">
+        </div>
+        <div id="FAIRTRADE">
+            <img src="resources/companies icons/FLOlogo_copy_360x.png" alt="">
+        </div>
+    </div>
+</div>
+<div id="content_page2">
+    <div id="discription_2">
+        <h2>We rarely run sales, but when we do, they never affect our makers.</h2>
+        <p>
+            We do our best to give you the best possible prices first time around, while still paying a fair price to our makers, weavers and farmers throughout the supply
+            <br>
+            chain.
+            <br>
+            Our Fair Trade producers around the world are our top priority. When we hold a sale, this never affects their bottom line. Every time you buy from us, your money
+            <br>
+            is directly invested back into them, supporting steady, skilled work around the world, and allowing us to keep bringing you environmentally-friendly clothing
+            <br>
+            without compromise.
+        </p>
+    </div>
+    <div id="trust_content">
+        <div id="shipping">
+            <i class="ri-truck-line"></i>
+            <h3>Shipping to all EU countries</h3>
+            <p>Quick, affordable parcel delivery by DHL tracked services.</p>
+        </div>
+        <div id="sustainable">
+            <i class="ri-leaf-line"></i>
+            <h3>Sustainable Fashion</h3>
+            <p>Supportive of both people and planet - for 30 years.</p>
+        </div>
+        <div id="get">
+            <i class="ri-message-2-line"></i>
+            <h3>Get in Touch</h3>
+            <p>Have questions? Get in touch with us at any time.</p>
+        </div>
+    </div>
+</div>

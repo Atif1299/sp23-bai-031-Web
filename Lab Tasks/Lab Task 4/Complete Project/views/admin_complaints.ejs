@@ -1,0 +1,51 @@
+<div class="admin-main">
+  <div class="admin-header">
+    <h1>Complaints (Contact Form Messages)</h1>
+  </div>
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>Sender</th>
+        <th>Date</th>
+        <th>Order ID</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if (complaints.length === 0) { %>
+        <tr><td colspan="5">No complaints found.</td></tr>
+      <% } %>
+      <% complaints.forEach(function(msg) { %>
+        <tr>
+          <td><%= msg.subject %></td>
+          <td><%= msg.userEmail %></td>
+          <td><%= msg.createdAt.toLocaleString() %></td>
+          <td>
+            <% if (msg.body && msg.body.includes('Order ID:')) { %>
+              <%= msg.body.split('Order ID:')[1].split('\n')[0].trim() %>
+            <% } else { %>
+              -
+            <% } %>
+          </td>
+          <td>
+            <div class="admin-message-details">
+              <% let parts = msg.body.split('--- Order Details ---'); %>
+              <% parts[0].split(/\n|; /).forEach(function(line) { %>
+                <% if (line.includes(':')) { %>
+                  <span class="admin-message-key"><%= line.split(':')[0] %>:</span>
+                  <%= line.split(':').slice(1).join(':').trim() %><br>
+                <% } else { %>
+                  <%= line %><br>
+                <% } %>
+              <% }) %>
+              <% if (parts.length > 1) { %>
+                <pre style="margin:8px 0 0 0; background:#f7f8fa; border-radius:8px; padding:8px; font-size:0.97rem;">--- Order Details ---<%= parts[1] %></pre>
+              <% } %>
+            </div>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div> 

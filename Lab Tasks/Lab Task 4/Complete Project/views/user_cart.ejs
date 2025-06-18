@@ -1,0 +1,153 @@
+<div class="admin-panel-layout">
+  <aside class="sidebar">
+    <a href="/user/account" class="logo user-account-link">User Account</a>
+    <ul class="sidebar-nav">
+      <li><a href="/user/account/cart" class="sidebar-link"><i class="ri-shopping-cart-2-line"></i> Shopping Cart</a></li>
+      <li><a href="/user/account/history" class="sidebar-link"><i class="ri-history-line"></i> Purchase History</a></li>
+      <li><a href="/user/logout" class="sidebar-link"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+    </ul>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Shopping Cart</h1>
+    </div>
+    <% if (cart && cart.length) { %>
+      <div class="row">
+        <div class="col-lg-8">
+          <table class="table align-middle">
+            <thead class="table-light">
+              <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Price</th>
+                <th style="width:160px;">Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% let total = 0; let items = 0; %>
+              <% cart.forEach(function(item) { %>
+                <% const product = item.product; %>
+                <% const subtotal = product.price * item.quantity; %>
+                <% total += subtotal; items += item.quantity; %>
+                <tr>
+                  <td>
+                    <form method="POST" action="/user/cart/remove/<%= product._id %>" style="display:inline;">
+                      <button type="submit" class="btn btn-link text-danger p-0" title="Remove"><i class="ri-close-line"></i></button>
+                    </form>
+                  </td>
+                  <td>
+                    <div style="display:flex;align-items:center;gap:12px;">
+                      <img src="<%= product.image %>" alt="<%= product.name %>" style="width:56px;height:56px;object-fit:cover;border-radius:8px;">
+                      <div>
+                        <div style="font-weight:600;"><%= product.name %></div>
+                        <div style="font-size:0.95em;color:#888;"><%= product.category || '' %></div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>₹<%= product.price.toFixed(2) %></td>
+                  <td>
+                    <form method="POST" action="/user/cart/update/<%= product._id %>" class="quantity-form" data-product-id="<%= product._id %>" style="display:flex;align-items:center;gap:6px;">
+                      <button type="button" class="btn btn-outline-secondary btn-sm minus-btn" <%= item.quantity <= 1 ? 'disabled' : '' %>>-</button>
+                      <input type="number" name="quantity" value="<%= item.quantity %>" min="1" style="width:48px;text-align:center;" class="form-control form-control-sm quantity-input">
+                      <button type="button" class="btn btn-outline-secondary btn-sm plus-btn">+</button>
+                    </form>
+                  </td>
+                  <td>₹<%= subtotal.toFixed(2) %></td>
+                  <td></td>
+                </tr>
+              <% }) %>
+            </tbody>
+          </table>
+          <form method="POST" action="/user/cart/clear" style="margin-top:12px;">
+            <button type="submit" class="btn btn-link text-danger">Clear Shopping Cart</button>
+          </form>
+        </div>
+        <div class="col-lg-4">
+          <div class="card" style="border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,0.04);">
+            <div class="card-body">
+              <h5 class="card-title">Order Summary</h5>
+              <ul class="list-group list-group-flush mb-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center">Items <span><%= items %></span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total <span>₹<%= total.toFixed(2) %></span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Shipping <span>₹0.00</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Taxes <span>₹0.00</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">Coupon Discount <span>-₹0.00</span></li>
+                <li class="list-group-item d-flex justify-content-between align-items-center fw-bold">Total <span>₹<%= total.toFixed(2) %></span></li>
+              </ul>
+              <form class="input-group mb-3" method="POST" action="#">
+                <input type="text" class="form-control" placeholder="Coupon Code" name="coupon" disabled>
+                <button class="btn btn-success" type="submit" disabled>Apply Coupon</button>
+              </form>
+              <a href="/checkout" class="btn btn-success w-100">Proceed to Checkout</a>
+            </div>
+          </div>
+          <div class="row text-center mt-4" style="font-size:0.98em;color:#666;">
+            <div class="col-4">
+              <i class="ri-truck-line" style="font-size:1.5em;"></i><br>Free Shipping
+            </div>
+            <div class="col-4">
+              <i class="ri-bank-card-line" style="font-size:1.5em;"></i><br>Flexible Payment
+            </div>
+            <div class="col-4">
+              <i class="ri-customer-service-2-line" style="font-size:1.5em;"></i><br>24×7 Support
+            </div>
+          </div>
+        </div>
+      </div>
+    <% } else { %>
+      <div class="text-center" style="margin:60px 0;">
+        <div class="empty-cart-img-wrapper">
+          <img src="/resources/addtocart.png" alt="Empty Cart" class="empty-cart-img">
+        </div>
+        <h3>Your cart is empty.</h3>
+        <p>Looks like you haven't added anything to your cart yet.</p>
+        <a href="/shop" class="btn btn-primary">Start Shopping</a>
+      </div>
+    <% } %>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.quantity-form').forEach(function(form) {
+  const minusBtn = form.querySelector('.minus-btn');
+  const plusBtn = form.querySelector('.plus-btn');
+  const input = form.querySelector('.quantity-input');
+
+  minusBtn && minusBtn.addEventListener('click', function() {
+    let val = parseInt(input.value, 10);
+    if (val > 1) {
+      input.value = val - 1;
+      form.submit();
+    }
+  });
+
+  plusBtn && plusBtn.addEventListener('click', function() {
+    let val = parseInt(input.value, 10);
+    input.value = val + 1;
+    form.submit();
+  });
+});
+</script>
+
+<style>
+.empty-cart-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.empty-cart-img {
+  width: 200px;
+  max-width: 90vw;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(80, 80, 120, 0.10);
+  background: #fff;
+  padding: 18px;
+  transition: box-shadow 0.2s;
+}
+.empty-cart-img:hover {
+  box-shadow: 0 8px 32px rgba(80, 80, 120, 0.16);
+}
+</style> 

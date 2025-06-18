@@ -1,0 +1,212 @@
+/* Shop Page Styles */
+.shop-container
+{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px 48px 16px;
+}
+
+.shop-title
+{
+    text-align: center;
+    margin: 32px 0 24px 0;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+#itemslist
+{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+#fixeditem
+{
+    width: 25vw;
+    background-color: rgb(20, 14, 14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#fixeditem img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item
+{
+    width: 25%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.item:hover
+{
+    box-shadow: 0 6px 24px rgba(60, 60, 100, 0.10);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.item-image
+{
+    width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    background: #f7f8fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.default-image
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    transition: opacity 0.2s;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.hover-image
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: opacity 0.2s;
+}
+
+.quick-add
+{
+    position: absolute;
+    bottom: 0%;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgb(246, 243, 243);
+    color: rgb(87, 65, 65);
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.item:hover .hover-image
+{
+    opacity: 1;
+}
+
+.item:hover .default-image
+{
+    opacity: 0;
+}
+
+.item:hover .quick-add
+{
+    opacity: 1;
+}
+
+.description
+{
+    height: 15%;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgb(242, 236, 236);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.description a
+{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+}
+
+.product-status
+{
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 2px 12px;
+}
+
+.product-status.active
+{
+    background: #d1fae5;
+    color: #059669;
+}
+
+.product-status.inactive
+{
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.no-products
+{
+    font-size: 1.2rem;
+    color: #888;
+    margin: 40px auto;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 900px)
+{
+    .item
+    {
+        width: calc(50% - 20px);
+    }
+
+    .item-image
+    {
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px)
+{
+    .shop-container
+    {
+        padding: 12px 2vw 32px 2vw;
+    }
+
+    .item
+    {
+        width: 100%;
+    }
+
+    .item-image
+    {
+        height: 140px;
+    }
+
+    .description
+    {
+        padding: 10px 6px 10px 6px;
+        font-size: 0.98rem;
+    }
+}

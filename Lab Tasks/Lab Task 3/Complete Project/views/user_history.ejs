@@ -1,0 +1,41 @@
+<div class="admin-panel-layout">
+  <aside class="sidebar">
+    <a href="/user/account" class="logo user-account-link">User Account</a>
+    <ul class="sidebar-nav">
+      <li><a href="/user/account/cart" class="sidebar-link"><i class="ri-shopping-cart-2-line"></i> Shopping Cart</a></li>
+      <li><a href="/user/account/history" class="sidebar-link"><i class="ri-history-line"></i> Purchase History</a></li>
+      <li><a href="/user/logout" class="sidebar-link"><i class="ri-logout-box-r-line"></i> Logout</a></li>
+    </ul>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1>Purchase History</h1>
+    </div>
+    <% if (user && user.purchaseHistory && user.purchaseHistory.length) { %>
+      <div class="purchase-history-list">
+        <% user.purchaseHistory.slice().reverse().forEach(function(order, idx) { %>
+          <div class="order-card" style="background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.04);margin-bottom:18px;padding:18px;">
+            <div style="font-weight:600;font-size:1.1em;margin-bottom:6px;">Order #<%= user.purchaseHistory.length - idx %> &mdash; <%= order.date.toLocaleString() %></div>
+            <div style="margin-bottom:8px;"><b>Address:</b> <%= order.address %></div>
+            <div style="margin-bottom:8px;"><b>Payment:</b> <%= order.paymentMethod %></div>
+            <div style="margin-bottom:8px;"><b>Amount:</b> ₹<%= order.amount.toFixed(2) %></div>
+            <div><b>Items:</b>
+              <ul style="margin:0 0 0 18px;">
+                <% order.items.forEach(function(item) { %>
+                  <li style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                    <% if (item.product && item.product.image) { %>
+                      <img src="<%= item.product.image %>" alt="<%= item.product.name %>" style="width:38px;height:38px;object-fit:cover;border-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+                    <% } %>
+                    <span><%= item.product && item.product.name ? item.product.name : 'Product' %></span> &times; <%= item.quantity %>
+                  </li>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } else { %>
+    <p>No purchases yet.</p>
+    <% } %>
+  </main>
+</div> 
